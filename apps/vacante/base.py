@@ -4,7 +4,7 @@ import json
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 from django.core.exceptions import ImproperlyConfigured
 
-with open(os.path.join(BASE_DIR,'config.json')) as f:
+with open(os.path.join(BASE_DIR,'conf_apps.json')) as f:
  configs = json.loads(f.read())
  
 def get_env_var(setting, configs=configs):

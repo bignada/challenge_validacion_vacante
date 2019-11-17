@@ -7,15 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Validar Vacante</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 <body>
-    <div>
-        <form method="POST">
-            {% crsf_token%}
-            {{ form }}
-            <input type="submit" value="Analizar">
-            
-        </form>
-    </div>
+   <div class="container px-0">
+        <div class="row mt-2 ">
+                <div class="col-8">
+                    <form method="POST">
+                        {% csrf_token%}
+                        {{ form }}
+                        <input type="submit" value="Analizar" class=" mt-2 btn btn-success float-right">
+                        
+                    </form>
+                </div>
+                <div class="col-4 pt-4" rows="23">
+                    
+                      
+                            {% for probabilidad in probabilidades %}
+                                <div class="alert alert-primary" role="alert">
+                                        Tipo (entidad): {{ probabilidad.type }}      </br>
+                                        Valor: {{ probabilidad.text }}      </br>
+                                        
+                                        Confiabilidad: {{ probabilidad.confidence }} </br>
+                                
+                                </div>
+                             {% endfor %}
+
+                </div>
+            </div>
+   </div>
 </body>
 </html>
