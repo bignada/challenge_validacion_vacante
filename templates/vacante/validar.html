@@ -23,7 +23,28 @@
                 </div>
                 <div class="col-4 pt-4" rows="23">
                     
-                      
+                    {% for tipo, val in diccionario.items %}
+                    
+                    <div class="row alert-primary alert py-2 my-1 {% if val.2 >= val.1 %} alert-success {% else %} alert-danger {% endif %}" role="alert">
+                        <div class="col-6 float-left">
+                                {{ tipo }}
+                        </div>
+                        <div class="col-6 float-right ">
+                                
+                                        <h5 class=" float-right">{{ val.3 }} de {{val.0}}</h5>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="container">
+                                    <h4 class="float-right">{{promedio}} / 10</h4>
+                            </div>
+                                
+                        </div>
+                        
+                    </div>
+<!--                       
                             {% for probabilidad in probabilidades %}
                                 <div class="alert alert-primary" role="alert">
                                         Tipo (entidad): {{ probabilidad.type }}      </br>
@@ -32,7 +53,7 @@
                                         Confiabilidad: {{ probabilidad.confidence }} </br>
                                 
                                 </div>
-                             {% endfor %}
+                             {% endfor %} -->
 
                 </div>
             </div>
